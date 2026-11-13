@@ -31,7 +31,7 @@ An employee reported being unable to access websites and company resources.
 
 **Result:** Network configuration successfully identified.
 
-**Evidence:** [View IP Configuration](screenshots/02-IP-Configuration.png.png)
+**Evidence:** [View IP Configuration](screenshots/02-IP-Configuration.png)
 
 ### Investigation 2: Default Gateway Connectivity
 
