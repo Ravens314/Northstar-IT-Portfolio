@@ -216,6 +216,46 @@ Successfully configured a simulated Windows Server Active Directory environment 
 
 Investigated a DHCP/APIPA addressing problem and configured static networking to support the lab environment.
 
+
+## Active Directory Help Desk Operations
+
+### Lab Environment
+- Organization: Northstar Solutions (Simulated)
+- Operating System: Windows Server 2025
+- Domain: northstar.test
+- Domain Controller: NORTHSTAR-DC01
+- Organizational Unit: Northstar-Employees/IT
+- Test Employee: James Carter
+- Username: jcarter
+
+### Completed Help Desk Tasks
+
+- Installed and configured Active Directory Domain Services.
+- Created and verified the northstar.test domain.
+- Created organizational units for employee management.
+- Created a simulated employee account.
+- Created the Northstar-IT-Staff security group.
+- Assigned and verified employee group membership.
+- Performed an Active Directory password reset.
+- Configured the user to change their password at next sign-in.
+- Disabled and re-enabled an employee account.
+- Verified account status using PowerShell.
+- Investigated password expiration information.
+- Checked account lockout status.
+- Verified security group membership using PowerShell.
+- Confirmed the employee's organizational unit location.
+
+### PowerShell Commands Used
+
+```powershell
+Get-ADUser -Identity jcarter
+
+Get-ADUser -Identity jcarter -Properties Enabled,LockedOut
+
+Get-ADPrincipalGroupMembership -Identity jcarter
+
+Get-ADUser -Identity jcarter -Properties DistinguishedName
+
 Created and managed a simulated employee account, assigned security group membership, performed password administration, and verified account settings using PowerShell.
 
 This project demonstrates foundational hands-on Help Desk and IAM administration skills.
