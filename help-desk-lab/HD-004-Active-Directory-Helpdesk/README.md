@@ -1,119 +1,225 @@
 # HD-004 — Active Directory Help Desk Support
 
-## Northstar Solutions (Simulated)
+## Northstar Solutions | Simulated IT Environment
 
-This folder contains screenshots documenting hands-on
-Windows Server and Active Directory Help Desk training.
-
-## Screenshot Evidence Checklist
-
-- [ ] 01-VirtualBox-Server-Configuration.png
-- [ ] 02-Windows-Server-Installation.png
-- [ ] 03-Windows-Server-2025-Desktop.png
-- [ ] 04-Server-Computer-Name.png
-- [ ] 05-Server-Network-Configuration.png
-- [ ] 06-Active-Directory-Installation.png
-- [ ] 07-Domain-Controller-Configuration.png
-- [ ] 08-Employee-Account-Creation.png
-- [ ] 09-Employee-Password-Reset.png
-- [ ] 10-Employee-Account-Unlock.png
-- [ ] 11-Security-Group-Management.png
-
-## Skills Being Developed
-
-- Windows Server administration
-- Active Directory navigation
-- Employee account creation
-- Password resets
-- Account unlocking
-- Security group membership management
-- Help Desk ticket documentation
-
-All activities are performed in a simulated
-training environment.
-
+**Project Status:** Hands-on technical lab completed  
+**Focus:** Help Desk Support, Active Directory, Windows Server, and Identity Administration
 
 ---
 
-## Network Troubleshooting: DHCP/APIPA Investigation
+## 1. Project Overview
 
-### Lab Environment
-- Company: Northstar Solutions (Simulated)
-- Server: NORTHSTAR-DC01
-- Operating System: Windows Server 2025 Standard Evaluation
-- Virtualization Platform: Oracle VirtualBox
-- Network Type: Internal Network (Northstar-Lab)
-- Static IPv4 Address: 192.168.50.10
-- Subnet Mask: 255.255.255.0
-- Preferred DNS Server: 192.168.50.10
+This project demonstrates hands-on experience configuring and administering a simulated Windows Server environment for Northstar Solutions.
+
+The goal was to practice common Help Desk responsibilities, including troubleshooting network connectivity, managing Active Directory user accounts, resetting passwords, managing security groups, and verifying account configurations using PowerShell.
+
+All activities were performed in a personal virtual lab environment rather than a production business network.
+
+## 2. Lab Environment
+
+| Component | Configuration |
+|---|---|
+| Virtualization | Oracle VirtualBox |
+| Operating System | Windows Server 2025 Standard Evaluation |
+| Server Name | NORTHSTAR-DC01 |
+| Domain | northstar.test |
+| Server IP Address | 192.168.50.10 |
+| Directory Services | Active Directory Domain Services |
+| DNS | Windows Server DNS |
+| Administration | Active Directory Users and Computers |
+| Command Line | Windows PowerShell |
+
+## 3. Network Troubleshooting
+
+During initial server configuration, the virtual machine experienced an IP address assignment problem.
 
 ### Problem Identified
 
-During Windows Server configuration, the server received an
-Automatic Private IP Address (APIPA) of 169.254.1.190.
+The server received an automatic private IP address:
 
-This indicated that the server did not receive a usable IPv4
-address from a DHCP server.
+169.254.1.190
 
-Because the virtual machine was connected to an isolated
-VirtualBox internal network, DHCP service availability needed
-to be investigated.
+This indicated that the system had not received a usable IPv4 address from a DHCP server.
 
-### Troubleshooting Steps Performed
+### Troubleshooting Performed
 
-1. Opened Network Connections to inspect the Ethernet adapter.
-2. Reviewed the adapter's IPv4 configuration.
-3. Ran `ipconfig /all` to inspect network addressing.
-4. Identified the APIPA address 169.254.1.190.
-5. Inspected the VirtualBox network configuration.
-6. Confirmed the adapter was connected to the Northstar-Lab
-   internal network.
-7. Used PowerShell `Get-NetAdapter` to verify the Ethernet
-   adapter was operational.
-8. Configured a static IPv4 address of 192.168.50.10.
-9. Configured the subnet mask as 255.255.255.0.
-10. Configured the preferred DNS server as 192.168.50.10.
-11. Used PowerShell to verify the assigned IPv4 address.
-12. Used `Get-NetIPInterface` to verify DHCP was disabled.
+1. Reviewed the server's network configuration.
+2. Used `ipconfig /all` to inspect IP address information.
+3. Identified the APIPA address.
+4. Inspected the network adapter using PowerShell.
+5. Reviewed the VirtualBox internal network configuration.
+6. Configured the server with a static IPv4 address.
+7. Verified the assigned address and DNS configuration.
 
-### Investigation Results
+### Result
 
-- Initial IPv4 address: 169.254.1.190 (APIPA)
-- Configured IPv4 address: 192.168.50.10
-- Subnet mask: 255.255.255.0
-- Preferred DNS server: 192.168.50.10
-- Ethernet adapter status: Up
-- DHCP status after configuration: Disabled
+The server was configured with:
 
-The server's static IPv4 configuration was verified.
+- Static IP: 192.168.50.10
+- DNS server: 192.168.50.10
+- Network: Northstar-Lab
 
-This resolved the server's local IP-address configuration issue
-and prepared the environment for Active Directory setup.
+The static IP configuration enabled continued lab setup without relying on automatic DHCP address assignment.
 
-The screenshots do not establish that a DHCP server was
-repaired or that connectivity to another machine was tested.
+**Detailed troubleshooting documentation:**
 
-### Skills Demonstrated
+[View DHCP Network Troubleshooting Report](DHCP-Network-Troubleshooting.md)
 
-- Windows Server network troubleshooting
-- DHCP and APIPA investigation
-- Static IPv4 configuration
-- DNS configuration
-- PowerShell troubleshooting
-- Network adapter diagnostics
-- VirtualBox internal networking
+## 4. Active Directory Domain Configuration
+
+Installed Active Directory Domain Services and DNS Server roles.
+
+Promoted NORTHSTAR-DC01 to the first domain controller in a new forest.
+
+### Domain Configuration
+
+- Domain name: northstar.test
+- NetBIOS name: NORTHSTAR
+- Domain controller: NORTHSTAR-DC01
+- DNS server role: Installed
+- Global Catalog: Enabled
+
+Verified the server's domain membership and accessed Active Directory Users and Computers.
+
+## 5. Organizational Unit Management
+
+Created the following organizational unit structure:
+
+northstar.test
+└── Northstar-Employees
+    └── IT
+
+This structure provides a foundation for organizing employee accounts and applying department-specific administrative policies.
+
+## 6. Active Directory User Administration
+
+Created a simulated employee account.
+
+| Attribute | Value |
+|---|---|
+| Employee | James Carter |
+| Username | jcarter |
+| Domain | northstar.test |
+| Department OU | IT |
+| Parent OU | Northstar-Employees |
+| Account Status | Enabled |
+
+Configured the account to require a password change at the next sign-in.
+
+## 7. Security Group Management
+
+Created the following Active Directory security group:
+
+**Northstar-IT-Staff**
+
+Group configuration:
+
+- Group scope: Global
+- Group type: Security
+- Organizational Unit: IT
+
+Added James Carter to the security group.
+
+Verified group membership using Active Directory Users and Computers and PowerShell.
+
+## 8. Password Reset and Account Management
+
+Practiced common Help Desk account administration tasks:
+
+- Resetting an employee password.
+- Requiring a password change at the next sign-in.
+- Disabling an employee account.
+- Re-enabling an employee account.
+- Checking whether an account is locked.
+- Verifying account properties.
+
+These exercises demonstrate foundational identity lifecycle administration.
+
+## 9. PowerShell Verification
+
+Used PowerShell to inspect Active Directory account properties.
+
+### Verify Account Status
+
+Get-ADUser -Identity jcarter -Properties LockedOut,Enabled |
+Select-Object Name,Enabled,LockedOut
+
+Verified that the account was enabled and not locked.
+
+### Verify Security Group Membership
+
+Get-ADPrincipalGroupMembership -Identity jcarter |
+Select-Object Name
+
+Confirmed membership in:
+
+- Domain Users
+- Northstar-IT-Staff
+
+### Verify Organizational Unit
+
+Get-ADUser -Identity jcarter -Properties DistinguishedName |
+Select-Object Name,DistinguishedName
+
+Confirmed the account's location:
+
+CN=James Carter,OU=IT,OU=Northstar-Employees,DC=northstar,DC=test
+
+## 10. Screenshot Evidence
+
+Screenshots documenting the Windows Server configuration, network troubleshooting, Active Directory installation, and user administration exercises are stored in the project folder.
+
+[View Screenshot Evidence](screenshots/)
+
+The evidence includes:
+
+- VirtualBox server configuration
+- Windows Server installation
+- Server computer name
+- DHCP/APIPA troubleshooting
+- Static IP configuration
+- Network adapter verification
+- Active Directory and DNS installation
+- Domain controller promotion
+- Organizational unit creation
+- Employee account creation
+- Security group creation
+- Group membership verification
+- Password reset
+- Account enable/disable administration
+- PowerShell account verification
+
+## 11. Skills Demonstrated
+
+### Help Desk Skills
+
+- Windows Server administration
+- Network troubleshooting
+- IPv4 configuration
+- User account provisioning
+- Password resets
+- Account troubleshooting
 - Technical documentation
 
-### Screenshot Evidence
+### Identity and Access Management Foundations
 
-- [VirtualBox Internal Network](screenshots/05-VirtualBox-Internal-Network.png)
-- [DHCP/APIPA Problem](screenshots/06-DHCP-APIPA-Problem.png)
-- [Ethernet Adapter Status](screenshots/07-Ethernet-Adapter-Status.png)
-- [Static IP Verification](screenshots/08-Static-IP-Verification.png)
+- Active Directory administration
+- Identity lifecycle management
+- Security group management
+- Organizational unit management
+- Account status verification
+- PowerShell identity administration
 
-### Project Status
+## 12. Project Outcome
 
-Network troubleshooting and static IP configuration completed.
+Successfully configured a simulated Windows Server Active Directory environment and performed common Help Desk account administration tasks.
 
-Active Directory Domain Services and DNS installation
-configuration is in progress.
+Investigated a DHCP/APIPA addressing problem and configured static networking to support the lab environment.
+
+Created and managed a simulated employee account, assigned security group membership, performed password administration, and verified account settings using PowerShell.
+
+This project demonstrates foundational hands-on Help Desk and IAM administration skills.
+
+---
+
+**Northstar Solutions is a fictional organization used for technical training and portfolio demonstration.**
