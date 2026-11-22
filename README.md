@@ -48,7 +48,28 @@ The projects below demonstrate my ability to investigate technical problems, use
 
 **Key Finding:** Successfully verified network connectivity and identified elevated external network latency.
 
-**[View Project 3](help-desk-lab/HD-003-Network-Connectivity/README.md)**
+
+---
+
+## 🔷 Project 4 — Active Directory Help Desk
+
+**Ticket:** HD-004
+
+**Focus:** Simulated Active Directory user account management, password resets, account access troubleshooting, and security group administration.
+
+**Skills Demonstrated:**
+- Active Directory user provisioning
+- Password resets and account management
+- Account enable/disable procedures
+- Security group management
+- PowerShell verification
+- Identity and Access Management (IAM)
+- Help Desk ticket documentation
+
+**Key Findings:** Practiced Active Directory account administration and access management workflows in a simulated Help Desk environment, documenting account changes and verification procedures.
+
+[View Project 4](help-desk-lab/HD-004-Active-Directory-Helpdesk/README.md)
+  
 
 ---
 
