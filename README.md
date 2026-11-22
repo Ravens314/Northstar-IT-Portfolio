@@ -48,7 +48,7 @@ The projects below demonstrate my ability to investigate technical problems, use
 
 **Key Finding:** Successfully verified network connectivity and identified elevated external network latency.
 
-
+[View Project 3](PASTE-ACTUAL-PROJECT-3-URL-HERE)
 ---
 
 ## 🔷 Project 4 — Active Directory Help Desk
