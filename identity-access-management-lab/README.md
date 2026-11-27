@@ -44,8 +44,8 @@ This hands-on lab simulates an enterprise Identity and Access Management (IAM) e
 
 | Ticket ID | Request | Status |
 |---|---|---|
-| IAM-001 | Enterprise Directory Organization | Implemented |
-| IAM-002 | Employee Onboarding | In Progress |
+| [IAM-001](https://github.com/Ravens314/Northstar-IT-Portfolio/issues/5) | Enterprise Directory Organization | ✅ Completed |
+| [IAM-002](https://github.com/Ravens314/Northstar-IT-Portfolio/issues/6) | Employee Onboarding | ✅ Completed |
 | IAM-003 | RBAC and Security Group Assignment | Pending |
 | IAM-004 | Password Reset and Account Unlock | Pending |
 | IAM-005 | Employee Department Transfer | Pending |
@@ -53,7 +53,6 @@ This hands-on lab simulates an enterprise Identity and Access Management (IAM) e
 | IAM-007 | Unauthorized Access Request | Pending |
 | IAM-008 | Group Policy Management | Pending |
 | IAM-009 | PowerShell Bulk User Provisioning | Pending |
-| IAM-010 | Identity and Access Audit | Pending |
 
 ## Evidence and Documentation
 
