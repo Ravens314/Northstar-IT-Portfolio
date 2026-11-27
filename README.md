@@ -1,4 +1,4 @@
-## 🖥️ Help Desk Projects — Northstar Solutions
+## 🖥️ Enterprise IT Operations & Technical Support
 
 Welcome to my hands-on IT Support portfolio.
 
